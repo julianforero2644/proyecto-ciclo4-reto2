@@ -20,7 +20,7 @@ public class UserRepositorio {
      @Autowired
     private InterfaceUser userCrudRepository;
      
-       public List<User> getAll() {
+     public List<User> getAll() {
         return (List<User>) userCrudRepository.findAll();
     }
 
@@ -49,6 +49,6 @@ public class UserRepositorio {
     public Optional<User> authenticateUser(String email, String password) {
         return userCrudRepository.findByEmailAndPassword(email, password);
     }
-     
+
      
 }

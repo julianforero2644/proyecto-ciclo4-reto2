@@ -31,7 +31,7 @@ public class UserService {
 
     public User create(User user) {
         if (user.getId() == null) {
-            return user;            
+            return user;
         }else {
             Optional<User> e = userRepository.getUser(user.getId());
             if (e.isEmpty()) {
@@ -42,9 +42,11 @@ public class UserService {
                 }
             }else{
                 return user;
-            }           
+            }
         }
     }
+
+
 
     public User update(User user) {
 
@@ -57,6 +59,14 @@ public class UserService {
                 if (user.getName() != null) {
                     userDb.get().setName(user.getName());
                 }
+                if (user.getBirthtDay() != null){
+                    userDb.get().setBirthtDay(user.getBirthtDay());
+                }
+
+                if (user.getMonthBirthtDay() != null){
+                    userDb.get().setMonthBirthtDay(user.getMonthBirthtDay());
+                }
+
                 if (user.getAddress() != null) {
                     userDb.get().setAddress(user.getAddress());
                 }
